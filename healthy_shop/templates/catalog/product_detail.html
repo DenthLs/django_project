@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Товар {{ pk }} — Магазин правильных продуктов{% endblock %}
+
+{% block content %}
+    <h1>Товар №{{ pk }}</h1>
+    <p>Здесь будет подробная информация о товаре с идентификатором {{ pk }}.</p>
+    <a href="/catalog/" class="btn btn-secondary">← В каталог</a>
+{% endblock %}
