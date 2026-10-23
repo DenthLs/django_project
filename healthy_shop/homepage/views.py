@@ -1,12 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-# Create your views here.
 def index_page(request):
-    return render(request, 'base.html')
+    template_name = 'homepage/index.html'
+    title = 'Главная страница «Магазин правильных продуктов»'
+    promo_product = 'Овсянка «Здоровье»'
+
+    context = {
+        'title': title,
+        'promo_product': promo_product,
+    }
+    return render(request, template_name, context)
 
 def about(request):
-    return HttpResponse('Описание проекта «Магазин правильных продуктов»')
+    return render(request, 'homepage/about.html')
 
 def contacts(request):
     return render(request, 'homepage/contacts.html')

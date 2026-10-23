@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Главная — Магазин правильных продуктов{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-    <h1>Добро пожаловать!</h1>
-    <p class="lead">Мы продаём только полезные и натуральные продукты.</p>
+    <h1>{{ title }}</h1>
+    <p class="lead">Товар дня: <strong>{{ promo_product }}</strong></p>
 
     <div class="row g-4 mt-2">
         <div class="col-md-4">
@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Каталог товаров</h5>
                     <p class="card-text">Овощи, фрукты, крупы, орехи и многое другое.</p>
-                    <a href="/catalog/" class="btn btn-success">Перейти в каталог</a>
+                    <a href="{% url 'catalog:product_list' %}" class="btn btn-success">Перейти в каталог</a>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <h5 class="card-title">О нас</h5>
                     <p class="card-text">Узнайте, почему наши продукты — правильные.</p>
-                    <a href="/about/" class="btn btn-outline-success">Подробнее</a>
+                    <a href="{% url 'homepage:about' %}" class="btn btn-outline-success">Подробнее</a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Контакты</h5>
                     <p class="card-text">Свяжитесь с нами удобным способом.</p>
-                    <a href="/contacts/" class="btn btn-outline-success">Написать</a>
+                    <a href="{% url 'homepage:contacts' %}" class="btn btn-outline-success">Написать</a>
                 </div>
             </div>
         </div>

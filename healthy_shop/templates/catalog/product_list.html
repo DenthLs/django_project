@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %}Каталог товаров{% endblock %}
+{% block title %}Каталог товаров — Магазин правильных продуктов{% endblock %}
 
 {% block content %}
     <h1>Каталог товаров</h1>
-    <p>Выберите товар, чтобы посмотреть подробности:</p>
+    <p>В нашем ассортименте представлены следующие продукты:</p>
 
-    <div class="list-group">
-        <a href="/catalog/1/" class="list-group-item list-group-item-action">
-            Товар 1 — Овсянка
-        </a>
-        <a href="/catalog/2/" class="list-group-item list-group-item-action">
-            Товар 2 — Яблоки
-        </a>
-        <a href="/catalog/100500/" class="list-group-item list-group-item-action">
-            Товар 100 — Грецкие орехи
-        </a>
-    </div>
+    <ul class="list-unstyled">
+        {% for product in products %}
+            <li class="mb-3">
+                <h3>{{ product.title }}</h3>
+                <p>{{ product.description|truncatewords:10 }}</p>
+            </li>
+            {% if not forloop.last %}<hr>{% endif %}
+        {% empty %}
+            <li>Пока товаров нет.</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

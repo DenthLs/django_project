@@ -5,5 +5,5 @@
 {% block content %}
     <h1>Товар №{{ pk }}</h1>
     <p>Здесь будет подробная информация о товаре с идентификатором {{ pk }}.</p>
-    <a href="/catalog/" class="btn btn-secondary">← В каталог</a>
+    <a href="{% url 'catalog:product_list' %}" class="btn btn-secondary">← В каталог</a>
 {% endblock %}
