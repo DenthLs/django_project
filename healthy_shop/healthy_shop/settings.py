@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-@5_0kbp5oj)oso=tjjij+ccn^jr19=6ny^eh3&jscb0+lnl!)*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.0.102']
 
 
 # Application definition
@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'healthy_shop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'healthy_shop_db',
+        'USER': 'website',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
