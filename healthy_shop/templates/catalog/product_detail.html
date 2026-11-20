@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}Товар {{ pk }} — Магазин правильных продуктов{% endblock %}
+{% block title %}{{ product.title }} — Магазин правильных продуктов{% endblock %}
 
 {% block content %}
-    <h1>Товар №{{ pk }}</h1>
-    <p>Здесь будет подробная информация о товаре с идентификатором {{ pk }}.</p>
-    <a href="{% url 'catalog:product_list' %}" class="btn btn-secondary">← В каталог</a>
+    <h1>{{ product.title }}</h1>
+    <p>{{ product.description }}</p>
+    <p><strong>Цена:</strong> {{ product.price }} ₽</p>
+
+    <h2 class="mt-4">Оформить заказ</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Заказать</button>
+    </form>
+
+    <a href="{% url 'catalog:product_list' %}" class="btn btn-secondary mt-3">← В каталог</a>
 {% endblock %}

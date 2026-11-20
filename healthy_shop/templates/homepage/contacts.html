@@ -4,9 +4,16 @@
 
 {% block content %}
     <h1>Контакты</h1>
-    <ul class="list-group">
+    <ul class="list-group mb-4">
         <li class="list-group-item">г. Тула, ул. Смидович, д. 12</li>
         <li class="list-group-item">+7 (900) 123-45-67</li>
         <li class="list-group-item">info@healthy-shop.ru</li>
     </ul>
+
+    <h2>Напишите нам</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Отправить</button>
+    </form>
 {% endblock %}

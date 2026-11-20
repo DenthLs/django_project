@@ -11,6 +11,10 @@
             <li class="mb-3">
                 <h3>{{ product.title }}</h3>
                 <p>{{ product.description|truncatewords:10 }}</p>
+                <p><strong>Цена:</strong> {{ product.price }} ₽</p>
+                <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-outline-success btn-sm">
+                    Подробнее и заказать
+                </a>
             </li>
             {% if not forloop.last %}<hr>{% endif %}
         {% empty %}
